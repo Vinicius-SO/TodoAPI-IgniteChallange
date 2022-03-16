@@ -58,10 +58,9 @@ app.post('/users', (request, response) => {
 app.get('/todos', checksExistsUserAccount, (request,response)=>{
   const { user } = request
 
-  console.log(user)
-
   return response.json(user.todos)
 })
+
 app.post('/todos',checksExistsUserAccount,(request,response)=>{
   
   const { title,deadline } = request.body
@@ -76,7 +75,29 @@ app.post('/todos',checksExistsUserAccount,(request,response)=>{
   }
   user.todos.push(todo)
 
-  return response.status(201).send()
+  return response.status(201).json(todo)
+
+})
+
+app.put('/todo/:id', checksExistsUserAccount, (request,response)=>{
+  const { title,deadline } = request.body
+  const { id } = request.params
+
+  const { user } = request
+  
+  const todoIndex = user.todos.findIndex(todo => todo.id === id)
+  
+  const todoBody = {
+    id,
+    title,
+    done:false,
+    deadline: new Date(deadline + " 00:00"),
+    created_at: user.todos[todoIndex].created_at
+  }
+
+  user.todos[todoIndex] = todoBody
+
+  return response.json(users)
 
 })
 
