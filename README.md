@@ -27,6 +27,6 @@ no primeiro módulo, temos o desafío de criar uma API que gerencie os dados de 
 - [x] Não deve ser posspivel deletar um todo não existente 
 
 ## Tecnologias Usadas
--NodeJs
--Express
--Insominia
+- NodeJs
+- Express
+- Insominia
