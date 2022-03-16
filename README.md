@@ -9,7 +9,7 @@ Essa API tem como principal objetivo gerenciar os dados de uma aplicação de af
 para isso criando rotas que são responsaveis por adiministrar o CRUD da aplicação e suas
 regrasde negócio.
 
-Este é um projeto proposto pelo bootcamp Ignite da [Rockeaseat](), onde após criarmos a [FinAPi]()
+Este é um projeto proposto pelo bootcamp Ignite da [Rockeaseat](https://www.rocketseat.com.br/), onde após criarmos a [FinAPi](https://github.com/Vinicius-SO/FinAPI-Ignite)
 no primeiro módulo, temos o desafío de criar uma API que gerencie os dados de um ToDo App.
 
 ## Requisitos da aplicação
