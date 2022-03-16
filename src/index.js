@@ -23,7 +23,7 @@ function checksExistsUserAccount(request, response, next) {
 
   const user = users.find(user => user.username === username)
   if(!user){
-    return response.status(400).json({error: "User doesn't exist"})
+    return response.status(404).json({error: "User doesn't exist"})
   }
 
   request.user = user
@@ -79,7 +79,7 @@ app.post('/todos',checksExistsUserAccount,(request,response)=>{
 
 })
 
-app.put('/todo/:id', checksExistsUserAccount, (request,response)=>{
+app.put('/todos/:id', checksExistsUserAccount, (request,response)=>{
   const { title,deadline } = request.body
   const { id } = request.params
 
@@ -99,6 +99,29 @@ app.put('/todo/:id', checksExistsUserAccount, (request,response)=>{
 
   return response.json(users)
 
+})
+
+app.patch('/todos/:id/done', checksExistsUserAccount, (request,response)=>{
+  const { user } = request
+  const { id } = request.params
+
+  const todo = user.todos.find(todo=> todo.id === id)
+
+  todo.done = true
+
+  return response.status(201).send()
+})
+
+app.delete('/todos/:id/',checksExistsUserAccount, (request,response)=>{
+  
+  const {user} = request
+  const { id } = request.params
+
+  const todo = user.todos.findIndex(todo=> todo.id === id)
+
+  user.todos.splice(todo, 1)
+
+  return response.json(user)
 })
 
 module.exports = app;

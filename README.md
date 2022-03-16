@@ -14,12 +14,17 @@ no primeiro módulo, temos o desafío de criar uma API que gerencie os dados de 
 
 ## Requisitos da aplicação
 - [x] Deve ser possível criar um usuario
-- [x] Deve ser possivel pegar os Todos de um usuario
-- [x] Deve ser possível criar Todos
-
+- [x] Deve ser possivel listar os Todos de um usuario
+- [x] Deve ser possível criar um novo Todos
+- [x] Deve ser possível atualizar um ToDo
+- [x] Deve ser possível marcar um ToDo como feito
+- [x] Deve ser possível deletar um ToDo 
 
 ## Regras de Negocio 
-
+- [x] Não deve ser possivel criar usuario com nome ja cadastrado
+- [ ] Não deve ser possivel atualizar um todo não existente
+- [ ] Não deve ser possível marcar um todo não existente como feito
+- [ ] Não deve ser posspivel deletar um todo não existente 
 
 ## Tecnologias Usadas
 -NodeJs
