@@ -86,6 +86,10 @@ app.put('/todos/:id', checksExistsUserAccount, (request,response)=>{
   const { user } = request
   
   const todoIndex = user.todos.findIndex(todo => todo.id === id)
+
+  if(todoIndex === -1){
+    return response.status(404).json({error: "That todo doens't exist!"})
+  }
   
   const todoBody = {
     id,
@@ -107,6 +111,10 @@ app.patch('/todos/:id/done', checksExistsUserAccount, (request,response)=>{
 
   const todo = user.todos.find(todo=> todo.id === id)
 
+  if(!todo){
+    return response.status(404).json({error: "That todo doens't exist!"})
+  }
+
   todo.done = true
 
   return response.status(201).send()
@@ -118,6 +126,10 @@ app.delete('/todos/:id/',checksExistsUserAccount, (request,response)=>{
   const { id } = request.params
 
   const todo = user.todos.findIndex(todo=> todo.id === id)
+
+  if(todo === -1){
+    return response.status(404).json({error: "That todo doens't exist!"})
+  }
 
   user.todos.splice(todo, 1)
 

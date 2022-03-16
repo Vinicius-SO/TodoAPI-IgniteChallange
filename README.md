@@ -22,9 +22,9 @@ no primeiro módulo, temos o desafío de criar uma API que gerencie os dados de 
 
 ## Regras de Negocio 
 - [x] Não deve ser possivel criar usuario com nome ja cadastrado
-- [ ] Não deve ser possivel atualizar um todo não existente
-- [ ] Não deve ser possível marcar um todo não existente como feito
-- [ ] Não deve ser posspivel deletar um todo não existente 
+- [x] Não deve ser possivel atualizar um todo não existente
+- [x] Não deve ser possível marcar um todo não existente como feito
+- [x] Não deve ser posspivel deletar um todo não existente 
 
 ## Tecnologias Usadas
 -NodeJs
