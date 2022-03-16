@@ -58,7 +58,26 @@ app.post('/users', (request, response) => {
 app.get('/todos', checksExistsUserAccount, (request,response)=>{
   const { user } = request
 
+  console.log(user)
+
   return response.json(user.todos)
+})
+app.post('/todos',checksExistsUserAccount,(request,response)=>{
+  
+  const { title,deadline } = request.body
+  const { user } = request
+
+  const todo = {
+    id:uuidv4(),
+    title,
+    done: false,
+    deadline: new Date(deadline + " 00:00"),
+    created_at: new Date()
+  }
+  user.todos.push(todo)
+
+  return response.status(201).send()
+
 })
 
 module.exports = app;
